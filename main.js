@@ -1,12 +1,3 @@
-let ctr = 1;
-do{
-    let player = prompt("Rock, Paper or Scissors? ").toLowerCase();
-    let bot = getComputerChoice();
-    
-    alert(play(player, bot));
-    ctr++;
-}
-while(ctr <= 5);
 
 
 function getComputerChoice(){
