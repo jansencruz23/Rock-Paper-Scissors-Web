@@ -1,4 +1,20 @@
+const picks = document.querySelectorAll(".picks");
 
+picks.forEach((pick) => {
+    pick.addEventListener('click', (e) => {
+        let userPick = getUserChoice(e);
+        let botPick = getComputerChoice();
+    
+        play(userPick, botPick);
+    });
+});
+
+
+function getUserChoice(e){
+    if(e.target.id == 'rock') return 'rock';
+    else if(e.target.id == 'paper') return 'paper';
+    else if(e.target.id == 'scissors') return 'scissors';
+}
 
 function getComputerChoice(){
     let choice = Math.ceil(Math.random() * 3);
@@ -10,15 +26,15 @@ function getComputerChoice(){
 function play(player, bot){
     if((player == 'rock' && bot == 'rock') || (player == 'paper' && bot == 'paper') || (player == 'scissors' && bot == 'scissors'))
     {
-        return `Draw! you both picked ${player}`;
+        alert( `Draw! you both picked ${player}`);
     }
     else if((player == 'rock' && bot == 'scissors') || (player == 'paper' && bot == 'rock') || (player == 'scissors' && bot == 'paper'))
     {
-        return `You Win! ${player} beats ${bot}`;
+        alert( `You Win! ${player} beats ${bot}`);
     }
     else if((player == 'rock' && bot == 'paper') || (player == 'paper' && bot == 'scissors') || (player == 'scissors' && bot == 'rock'))
     {
-        return `You Lose! ${bot} beats ${player}`;
+        alert( `You Lose! ${bot} beats ${player}`);
     }
     else
     {
