@@ -19,9 +19,11 @@
     </div>
 
     <header>
-        <div class="title">
-            ROCK PAPER SCISSORS
-        </div>
+        <div class="stack" style="--stacks: 3;">
+            <span style="--index: 0;">ROCK PAPER SCISSORS</span>
+            <span style="--index: 1;">ROCK PAPER SCISSORS</span>
+            <span style="--index: 2;">ROCK PAPER SCISSORS</span>
+          </div>
     </header>
     <main>
         <div class="content">
@@ -31,11 +33,11 @@
             </div>
             <div class="pick-display">
                 <div class="user-pick">
-                    <div id="user-icon" class="user-icon icon picks"></div>
+                    <div id="user-icon" class="user-icon picks">🤔</div>
                     <div id="user-score" class="user-score">Player: 0</div>
                 </div>
                 <div class="bot-pick">
-                    <div id="bot-icon" class="bot-icon icon picks"></div>
+                    <div id="bot-icon" class="bot-icon picks">🦾</div>
                     <div id="bot-score" class="bot-score">Computer: 0</div>
                 </div>
             </div>

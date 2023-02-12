@@ -1,18 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Mukta&display=swap');
+
 *, html, body {
     margin: 0;
     padding: 0;
+    background-color: #222831;
+    font-family: 'Fredoka One';
 }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    background-color: #181424;
+    height: 120px;
+    background-color: #111720;
 }
+
+.stack {
+    display: grid;
+    color: #fcc353;
+    font-size: 2.5em;
+    background-color: transparent;
+    grid-template-columns: 1fr;
+  }
+  
+  .stack span {
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    background-color: transparent;
+    font-size: 3rem;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+  }
+  
+  .stack span:nth-child(odd) { --glitch-translate: 8px; }
+  .stack span:nth-child(even) { --glitch-translate: -8px; }
+  
+  @keyframes stack {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    };
+    60% {
+      opacity: 0.5;
+      transform: translateX(50%);
+    }
+    80% {
+      transform: none;
+      opacity: 1;
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+      transform: translate(var(--glitch-translate));
+    }
+    2% {
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    4%, 100% {  text-shadow: none; transform: none; }
+  }
 
 header .title {
     color: #fcc353;
+    font-size: 2.5em;
+    background-color: transparent;
+}
+
+.header {
+    color: #ffffff;
 }
 
 .content .header {
@@ -25,7 +92,9 @@ header .title {
 .pick-display {
     display: flex;
     justify-content: center;
+    margin-top: -30px;
     gap: 30px;
+    padding-bottom: 40px;
 }
 
 .pick-display .user-pick,
@@ -33,13 +102,26 @@ header .title {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #ffffff;
 }
 
-.icon {
-    background-color: #181424;
+#user-icon,
+#bot-icon {
     height: 170px;
     width: 170px;
     font-size: 80px;
+}
+
+.icon {
+    background-color: #393e46;
+    height: 170px;
+    width: 170px;
+    font-size: 80px;
+    border-radius: 15px;
+}
+
+.icon:hover {
+    background-color: #4a4f57;
 }
 
 .choose-picker {
@@ -49,17 +131,26 @@ header .title {
     justify-content: center;
 }
 
+main {
+    padding-bottom: 150px;
+}
+
 footer {
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     align-items: center;
     justify-content: center;
-    background-color: #181424;
+    background-color: #111720;
     height: 100px;
     color: #ffffff;
     margin-top: auto;
+}
+
+footer div {
+    font-family: 'Mukta';
+    background-color: transparent;
 }
 
 .picks {
@@ -68,19 +159,30 @@ footer {
     align-items: center;
 }
 
-.picks p{
-    margin-top: -15px;
+.pick {
+    cursor: pointer;
+    user-select: none;
 }
 
 .modal-box {
     position: absolute;
     top: 50%;
     left: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+    width: 100%; /* Full width */
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #282c34;
     display: flex;
     flex-direction: column;
@@ -88,6 +190,7 @@ footer {
     align-items: center;
     width: 300px;
     height: 200px;
+    border-radius: 20px;
 }
 
 .modal-exit {
@@ -96,6 +199,7 @@ footer {
     align-self: flex-end;
     padding-right: 20px;
     margin-top: -20px;
+    cursor: pointer;
 }
 
 .modal-header {
@@ -108,6 +212,13 @@ footer {
 #modal-btn {
     font-size: x-large;
     color: #282c34;
-    padding: 10px;
+    padding: 15px;
     width: auto;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+#modal-btn:hover {
+    background-color: #4a4f57;
 }
