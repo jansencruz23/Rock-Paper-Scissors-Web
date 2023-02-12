@@ -223,3 +223,13 @@ footer div {
 #modal-btn:hover {
     background-color: #4a4f57;
 }
+
+@media (max-width: 550px) {
+    *{
+        padding: 8px;
+    }
+
+    .stack {
+        text-align: center;
+    }
+  }
