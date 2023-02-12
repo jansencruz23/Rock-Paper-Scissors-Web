@@ -8,6 +8,16 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="modal-box">
+        <div class="modal">
+            <div class="modal-exit">&times;</div>
+            <div class="modal-header">You won!</div>
+            <div class="modal-button">
+                <button id="modal-btn">Play again</button>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="title">
             ROCK PAPER SCISSORS
@@ -16,26 +26,27 @@
     <main>
         <div class="content">
             <div class="header">
-                Choose your pick
+                <h1>Choose your pick</h1>
                 <p>First to score 5 points to win the game</p>
             </div>
             <div class="pick-display">
                 <div class="user-pick">
-                    <div class="user-icon icon"></div>
-                    <div class="user-score">Player: 0</div>
+                    <div id="user-icon" class="user-icon icon picks"></div>
+                    <div id="user-score" class="user-score">Player: 0</div>
                 </div>
                 <div class="bot-pick">
-                    <div class="bot-icon icon"></div>
-                    <div class="bot-score">Computer: 0</div>
+                    <div id="bot-icon" class="bot-icon icon picks"></div>
+                    <div id="bot-score" class="bot-score">Computer: 0</div>
                 </div>
             </div>
             <div class="choose-picker">
-                <div id="rock" class="icon rock picks"><div>✊</div></div>
-                <div id="paper" class="icon paper picks"><div>🖐</div></div>
-                <div id="scissors" class="icon scissors picks"><div>✌️</div></div>
+                <div id="rock" class="icon rock picks pick">✊</div>
+                <div id="paper" class="icon paper picks pick">🖐</div>
+                <div id="scissors" class="icon scissors picks pick">✌️</div>
             </div>
         </div>
-    </main>
+    </main>     
+
     <footer>
         <div>
             Copyright &#169; 2023 Jansen C. Cruz

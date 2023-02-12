@@ -61,3 +61,53 @@ footer {
     color: #ffffff;
     margin-top: auto;
 }
+
+.picks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picks p{
+    margin-top: -15px;
+}
+
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.modal {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+}
+
+.modal-exit {
+    color: #ffffff;
+    font-size: 2em;
+    align-self: flex-end;
+    padding-right: 20px;
+    margin-top: -20px;
+}
+
+.modal-header {
+    margin-top: -20px;
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+#modal-btn {
+    font-size: x-large;
+    color: #282c34;
+    padding: 10px;
+    width: auto;
+}
