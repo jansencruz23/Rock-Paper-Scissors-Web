@@ -8,6 +8,11 @@
     font-family: 'Fredoka One';
 }
 
+html {
+    position:relative;
+    min-height:100%;
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -132,20 +137,20 @@ header .title {
 }
 
 main {
+    height: 100%;
     padding-bottom: 150px;
 }
 
 footer {
+    position:absolute;
+    bottom:0;
     display: flex;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     align-items: center;
     justify-content: center;
     background-color: #111720;
     height: 100px;
+    width:100%;
     color: #ffffff;
-    margin-top: auto;
 }
 
 footer div {
@@ -200,6 +205,7 @@ footer div {
     padding-right: 20px;
     margin-top: -20px;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .modal-header {
@@ -218,6 +224,7 @@ footer div {
     cursor: pointer;
     color: #ffffff;
     border-radius: 20px;
+    background-color: transparent;
 }
 
 #modal-btn:hover {
